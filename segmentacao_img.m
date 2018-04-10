@@ -1,6 +1,8 @@
 %Ex. de uso:    segmentacao_img('lena.jpg', 5)
 %               segmentacao_img('rgb.jpg', 7)
 
+%criar função para indicar a quantidade inicial de clusters
+
 function segmentacao_img(imagem, num_clusters)
     imagem = imread(imagem);            % Le imagem
     imagem_cinza = rgb2gray(imagem);    % Converte imagem para formato lab
@@ -9,7 +11,7 @@ function segmentacao_img(imagem, num_clusters)
 
     % Aplica algoritmo kmeans percorrendo a imagem guardando um vetor de index e centroides
     % Parametros: imagem, quantidade de clusters da segmentação, 'distance' e 'sqEuclidean' definem o tipo de distancia a ser usada, 'Replicates' e valor seguinte definem quantas execuções do kmeans serão realizadas
-    [index, centroide] = kmeans(double(imagem_cinza(:)), num_clusters, 'distance', 'sqEuclidean', 'Replicates', 5);
+    [index, centroide] = kmeans(double(imagem_cinza(:)), num_clusters, 'distance', 'sqEuclidean', 'Replicates', 5, 'Display', 'final');
 
     % Cria uma imagem segmentada, atribuindo cores para cada um dos clusters gerados pelo kmeans
     imagem_segmentada = zeros(numlinhas, numcolunas);   % Inicializa uma imagem com zeros
