@@ -1,5 +1,4 @@
-% Essa funcao recebe uma imagem RGB como entrada, realiza as equacoes de
-% conversao para HSI, e cria no diretorio 'imagens_hsi' a imagem convertida.
+% Essa funcao recebe uma imagem RGB como entrada, realiza as equacoes de conversao para HSI, e cria no diretorio 'imagens_hsi' a imagem convertida.
 
 function nome_imagem_hsi = rgb2hsi(imagem_rgb)
 % Nome da imagem que sera usado para gerar imagem HSI
