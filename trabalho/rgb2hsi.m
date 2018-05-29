@@ -1,9 +1,9 @@
 % Essa funcao recebe uma imagem RGB como entrada, realiza as equacoes de
-% conversao para HSI, e cria no diretorio atual a imagem convertida.
+% conversao para HSI, e cria no diretorio 'imagens_hsi' a imagem convertida.
 
-function rgb2hsi(imagem_rgb)
+function nome_imagem_hsi = rgb2hsi(imagem_rgb)
 % Nome da imagem que sera usado para gerar imagem HSI
-[caminhoarquivo, nome, extensao] = fileparts(imagem_rgb);
+[~, nome, extensao] = fileparts(imagem_rgb);
 
 % Le a imagem RGB dada como entrada:
 imagem_rgb = imread(imagem_rgb);
@@ -34,5 +34,6 @@ imagem_hsi(:,:,1) = H;
 imagem_hsi(:,:,2) = S;
 imagem_hsi(:,:,3) = I;
 
-imwrite(imagem_hsi, strcat(nome, '_hsi', extensao)); 
+nome_imagem_hsi = strcat('imagens_hsi/', nome, '_hsi_i', extensao);
+imwrite(imagem_hsi(:,:,3), nome_imagem_hsi);
 end
