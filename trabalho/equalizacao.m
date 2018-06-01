@@ -1,3 +1,6 @@
+% Essa funcao faz a equalizacao de uma imagem em niveis de cinza dada como
+% entrada.
+
 function nome_imagem_hsi = equalizacao(imagem_hsi)
     % Nome da imagem que sera usado para gerar imagem HSI
     [~, nome, extensao] = fileparts(imagem_hsi);

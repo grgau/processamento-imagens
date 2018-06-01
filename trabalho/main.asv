@@ -14,7 +14,6 @@ for i = 1 : length(diretorio_imagens)
     % 2 - Segmentacao de cada imagem obtida na etapa 1 obtendo duas regioes distintas, em imagem_seg_1 e imagem_seg_2 (armazena na pasta imagens_seg)
     [nome_imagem_seg_1, nome_imagem_seg_2] = segmentacao(nome_imagem_hsi);
     
-    % 3 - Aplicacao de um filtro morfologico, com o intuito de minimizar a presenca de ruido
-    [nome_imagem_filtro_1, nome_imagem_filtro_2] = filtro_morfologico(nome_imagem_seg_1, nome_imagem_seg_2);
+    
     
 end
