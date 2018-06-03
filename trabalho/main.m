@@ -15,6 +15,6 @@ for i = 1 : length(diretorio_imagens)
     [nome_imagem_seg_1, nome_imagem_seg_2] = segmentacao(nome_imagem_hsi);
     
     % 3 - Aplicacao de um filtro morfologico, com o intuito de minimizar a presenca de ruido
-    [nome_imagem_filtro_1, nome_imagem_filtro_2] = filtro_morfologico(nome_imagem_seg_1, nome_imagem_seg_2);
+    % [nome_imagem_filtro_1, nome_imagem_filtro_2] = filtro_morfologico(nome_imagem_seg_1, nome_imagem_seg_2);
     
 end
