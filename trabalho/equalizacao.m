@@ -1,7 +1,6 @@
-% Essa funcao faz a equalizacao de uma imagem em niveis de cinza dada como
-% entrada.
+% Essa funcao faz a equalizacao de uma imagem em niveis de cinza dada como entrada.
 
-function nome_imagem_hsi = equalizacao(imagem_hsi)
+function [] = equalizacao(imagem_hsi)
     % Nome da imagem que sera usado para gerar imagem HSI
     [~, nome, extensao] = fileparts(imagem_hsi);
     
@@ -36,7 +35,7 @@ function nome_imagem_hsi = equalizacao(imagem_hsi)
     % Sobrescreve a imagem_hsi, equalizando-a
     for i=1:size(imagem_hsi,1)
         for j=1:size(imagem_hsi,2)
-                imagem_hsi(i,j) = output(imagem_hsi(i,j)+1);
+            imagem_hsi(i,j) = output(imagem_hsi(i,j)+1);
         end
     end
     
