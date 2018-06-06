@@ -9,8 +9,8 @@
 - Todas as imagens que passam pela segmentação da Etapa 2 são colocadas no diretorio 'imagens_seg'
 - Etapa 3 (Aplicar filtro morfologico nas duas imagens segmentadas) feita
 - Escolhi o filtro gaussiano, as imagens com o filtro aplicado sobrescrevem as imagens segmentadas
+- Etapa 4.1 (Calcular entropia de Shannon) feita
 
 ###### Proximo a ser feito
 - Funcao de calcular dimensao fractal
-- Funcao de calcular entropia de shannon
 - Definir operador morfologico a ser usado
