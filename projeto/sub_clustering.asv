@@ -1,0 +1,36 @@
+
+function [saida] = sub_clustering()
+    vetor = [0, 125, 200, 120, 255, 251; 255, 253, 252, 252, 254, 252];
+    ra = 0.5;
+    
+    tam_linhas = size(vetor, 1);
+    tam_colunas = size(vetor, 2);
+    
+    %cria o vetor de distancias/potencias
+    potencias = zeros(tam_linhas, tam_colunas);
+    for i = 1: tam_linhas
+       for j = 1: tam_colunas
+           potencia = exp(double((-4 * abs(vetor - vetor(i,j)))/(ra*ra)));
+           potencia = sum(potencia);
+           potencia = sum(potencia);
+           potencias(i,j) = potencia;
+       end
+    end
+    disp(potencias);
+    
+    %Pega o maior valor M e o índice (em formato de coluna) I da matriz
+    [M,I] = max(potencias(:));
+    
+    %Transforma I em coordenadas (x,y)
+    [Ix, Iy] = ind2sub(size(potencias),I);
+    fprintf("As coordenadas (x,y) encontradas do maior valor %d são (%d,%d) e seu valor na matriz é %d\n", M, Ix,Iy, vetor(Ix,Iy));
+    
+    potencialCentroideAux = vetor(Ix,Iy);
+    potencialCentroideAux = exp(double((-4 * abs(vetor - potencialCentroideAux))/(ra*ra)));
+    potencialCentroideAux = potencias - (potencias .* potencialCentroideAux);
+    disp(potencialCentroideAux);
+    
+   [M,I] = max(potencialCentroideAux(:));
+    
+    
+end
