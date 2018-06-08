@@ -12,7 +12,7 @@ function centroides = sub_clustering(num_centroides, matriz)
     potencias = zeros(tam_linhas, tam_colunas);
     for i = 1: tam_linhas
        for j = 1: tam_colunas
-           potencia = exp(double((-4 * abs(matriz - matriz(i,j)))/(ra*ra)));      %Trocar o matriz-matriz(i,j) por função que afeta todos os elementos do matriz dps.
+           potencia = exp(double((-4 * abs( double(matriz) - double(matriz(i,j))))/(ra*ra)));      %Trocar o matriz-matriz(i,j) por função que afeta todos os elementos do matriz dps.
            potencia = sum(potencia);
            potencia = sum(potencia);
            potencias(i,j) = potencia;
@@ -20,6 +20,7 @@ function centroides = sub_clustering(num_centroides, matriz)
        fprintf("Foi feita a %d linha\n",i);
     end
     %disp(potencias);
+    dlmwrite('potencias1.txt',potencias);
     
     %Pega o maior valor M e o índice (em formato de coluna) I da matriz
     [M,I] = max(potencias(:));
@@ -33,9 +34,9 @@ function centroides = sub_clustering(num_centroides, matriz)
     
     for i = 2: num_centroides
         potencialCentroideAux = matriz(Ix,Iy);
-        potencialCentroideAux = exp(double((-4 * abs(matriz - potencialCentroideAux))/(rb*rb)));
+        potencialCentroideAux = exp(double((-4 * abs(double(matriz) - double(potencialCentroideAux)))/(rb*rb)));
         potencias = potencias - (potencias .* potencialCentroideAux);
-        %disp(potencias);
+        disp(potencias);
 
         %Pega o maior valor M e o índice (em formato de coluna) I da matriz
         [M,I] = max(potencias(:));
@@ -46,6 +47,8 @@ function centroides = sub_clustering(num_centroides, matriz)
         
         %O valor correspondente à maior potencia é o primeiro centroide
         centroides(i,1) = matriz(Ix, Iy);
+        nome = strcat('potencias', int2str(i), '.txt');
+        dlmwrite(nome,potencias);
     end
     %disp(centroides);
 end
