@@ -10,37 +10,12 @@ function segmentacao_img(imagem, num_clusters)
     numlinhas = size(imagem_cinza,1);   % Armazena numero de linhas em variavel
     numcolunas = size(imagem_cinza,2);  % Armazena numero de colunas em variavel
     
-    %Agora vai começar umas coisa loca. Vou percorrer pixel por pixel
-    %calculando a potencia dele. O de maior potencia vai ser o primeiro
-    %centróide.
-    %Começamos transformando a matriz em um vetor pra melhorar desempenho e
-    %facilidade em ler.
-    imagem = reshape(imagem_cinza, 1, []);
-    tam_x = size(imagem);
-    disp(tam_x(2));
+    %Aplicamos o algoritmo de subtractive clustering.
+    %disp(imagem_cinza);
     
-    maiorPotencial = 0;
-    for i = 1:tam_x(2)
-       %Aqui temos UM píxel, bora fazer a operação nele.
-       potencial = 0;
-       valor1 = double(imagem(i));
-       %agora fazer o potencial dele baseado no de todos os pixels
-       for k = 1:tam_x(2)
-            valor2 = double(imagem(k));
-            potencial = potencial + exp( (-4* (k_func( valor1, valor1, 0.25 ) - 2*k_func(valor1, valor2, 0.25) + k_func(valor2,valor2,0.25)) )/(ra^2) );
-       end
-       if(potencial > maiorPotencial)
-           maiorPotencial = potencial;
-       end
-       disp(maiorPotencial);
-       disp(i);
-    end
     
-       
-    %disp(maiorPotencial);
-        
-    C = [0; 20; 40; 255];
-    
+    C = sub_clustering(num_clusters, imagem_cinza);
+    disp(C);
     % Aplica algoritmo kmeans percorrendo a imagem guardando um vetor de index e centroides
     % Parametros: imagem, quantidade de clusters da segmentação, 'distance' e 'sqEuclidean' definem o tipo de distancia a ser usada, 'Replicates' e valor seguinte definem quantas execuções do kmeans serão realizadas
 
