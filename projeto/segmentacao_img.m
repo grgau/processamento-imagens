@@ -2,14 +2,17 @@
 %               segmentacao_img('rgb.jpg', 7)
 
 
-function segmentacao_img(imagem, num_clusters)
+function segmentacao_img(imagem)
     ra = 0.5;
     rb = 1.2; 
     imagem = imread(imagem);            % Le imagem
     imagem_cinza = rgb2gray(imagem);    % Converte imagem para formato lab
     numlinhas = size(imagem_cinza,1);   % Armazena numero de linhas em variavel
     numcolunas = size(imagem_cinza,2);  % Armazena numero de colunas em variavel
-    
+
+    %Funcao que define quantidade de centroides baseado em picos no histograma da imagem    
+    num_clusters = num_clusters_func(imagem);
+
     %Aplicamos o algoritmo de subtractive clustering.
     %disp(imagem_cinza);
     
