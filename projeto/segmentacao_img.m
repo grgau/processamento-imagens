@@ -4,14 +4,15 @@
 
 function segmentacao_img(imagem)
     ra = 0.5;
-    rb = 1.2; 
+    rb = 1.2;
+    
+    %Funcao que define quantidade de centroides baseado em picos no histograma da imagem    
+    num_clusters = num_clusters_func(imagem);
+    
     imagem = imread(imagem);            % Le imagem
     imagem_cinza = rgb2gray(imagem);    % Converte imagem para formato lab
     numlinhas = size(imagem_cinza,1);   % Armazena numero de linhas em variavel
     numcolunas = size(imagem_cinza,2);  % Armazena numero de colunas em variavel
-
-    %Funcao que define quantidade de centroides baseado em picos no histograma da imagem    
-    num_clusters = num_clusters_func(imagem);
 
     %Aplicamos o algoritmo de subtractive clustering.
     %disp(imagem_cinza);
@@ -22,8 +23,8 @@ function segmentacao_img(imagem)
     % Aplica algoritmo kmeans percorrendo a imagem guardando um vetor de index e centroides
     % Parametros: imagem, quantidade de clusters da segmentação, 'distance' e 'sqEuclidean' definem o tipo de distancia a ser usada, 'Replicates' e valor seguinte definem quantas execuções do kmeans serão realizadas
 
-        [index, centroide] = kmeans(double(imagem_cinza(:)), num_clusters, 'distance', 'sqEuclidean', 'Display', 'final', 'Start', C); 
-        disp(centroide);
+    [index, centroide] = kmeans(double(imagem_cinza(:)), num_clusters, 'distance', 'sqEuclidean', 'Display', 'final', 'Start', C); 
+    disp(centroide);
    
     % Cria uma imagem segmentada, atribuindo cores para cada um dos clusters gerados pelo kmeans
     imagem_segmentada = zeros(numlinhas, numcolunas);   % Inicializa uma imagem com zeros
