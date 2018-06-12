@@ -10,7 +10,8 @@ function segmentacao_img(imagem)
     num_clusters = num_clusters_func(imagem);
     
     imagem = imread(imagem);            % Le imagem
-    imagem_cinza = rgb2gray(imagem);    % Converte imagem para formato lab
+    %imagem_cinza = rgb2gray(imagem);    % Converte imagem para formato lab
+    imagem_cinza = imagem;
     numlinhas = size(imagem_cinza,1);   % Armazena numero de linhas em variavel
     numcolunas = size(imagem_cinza,2);  % Armazena numero de colunas em variavel
 
@@ -23,13 +24,24 @@ function segmentacao_img(imagem)
     % Aplica algoritmo kmeans percorrendo a imagem guardando um vetor de index e centroides
     % Parametros: imagem, quantidade de clusters da segmentação, 'distance' e 'sqEuclidean' definem o tipo de distancia a ser usada, 'Replicates' e valor seguinte definem quantas execuções do kmeans serão realizadas
 
-    [index, centroide] = kmeans(double(imagem_cinza(:)), num_clusters, 'distance', 'sqEuclidean', 'Display', 'final', 'Start', C); 
+     fprintf("\n\nCom o subtractive clustering:\n");
+    
+    [index, centroide] = kmeans(double(imagem_cinza(:)), num_clusters, 'distance', 'sqEuclidean', 'Display', 'iter', 'Start', C); 
     disp(centroide);
+
+    imagem_segmentada1 = zeros(numlinhas, numcolunas);   % Inicializa uma imagem com zeros
+    for i = 1:max(index)
+        imagem_segmentada1(index == i) = centroide(i);   % Vetor imagem_segmentada, para index igual a i recebe valor de centroide de i 
+    end
+    
+    fprintf('\n\n\nSem o Subtractive Clustering, com 10 repetições:\n');
+    
+    [index, centroide] = kmeans(double(imagem_cinza(:)), num_clusters, 'distance', 'sqEuclidean', 'Display', 'iter', 'Replicates', 10);
    
     % Cria uma imagem segmentada, atribuindo cores para cada um dos clusters gerados pelo kmeans
-    imagem_segmentada = zeros(numlinhas, numcolunas);   % Inicializa uma imagem com zeros
+    imagem_segmentada2 = zeros(numlinhas, numcolunas);   % Inicializa uma imagem com zeros
     for i = 1:max(index)
-        imagem_segmentada(index == i) = centroide(i);   % Vetor imagem_segmentada, para index igual a i recebe valor de centroide de i 
+        imagem_segmentada2(index == i) = centroide(i);   % Vetor imagem_segmentada, para index igual a i recebe valor de centroide de i 
     end
-    imagesc(imagem_segmentada)          % Exibe a imagem atribuindo cores para cada um dos clusters
+    imagesc([imagem_segmentada1, imagem_segmentada2])          % Exibe a imagem atribuindo cores para cada um dos clusters
 end
