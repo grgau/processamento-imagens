@@ -1,4 +1,4 @@
-function equalizar(imagem_hsi)
+function [nome_imagem]=equalizar(imagem_hsi)
     [~, nome, extensao] = fileparts(imagem_hsi);
     imagem_hsi = imread(imagem_hsi);
     
