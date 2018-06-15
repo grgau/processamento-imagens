@@ -1,39 +1,52 @@
-esses aqui tem que ser preto: (igual a zero)
-                      i-8,j                                 i-8,j-2   i-8,j-1   i-8,j+1   i-8,j+2
-           i-7,j-1             i-7,j+1                            i-7,j-2   i-7,j   i-7,j+2
-           i-6,j-1             i-6,j+1                            i-6,j-2   i-6,j   i-6,j+2   
-i-5,j-2                                   i-5,j+2                     i-5,j-1 a i-5,j+1
-i-4,j-2                                   i-4,j+2                            até                         : esses todos aqui tem que ser branco (igual a 1)
-i-3,j-2                                   i-3,j+2                     i+5,j-1 a i+5,j+1
-i-2,j-2                                   i-2,j+2                 i+6,j-2   i+6,j   i+6,j+2
-i-1,j-2                                   i-1,j+2                 i+7,j-2   i+7,j   i+7,j+2
-i,j-2                                      i,j+2            i+8,j-2   i+8,j-2   i+8,j+1   i+8,j+2
-i+1,j-2                                   i+1,j+2
-i+2,j-2                                   i+2,j+2
-i+3,j-2                                   i+3,j+2
-i+4,j-2                                   i+4,j+2
-i+5,j-2                                   i+5,j+2
-           i+6,j-1             i+6,j+1
-           i+7,j-1             i+7,j+1
-                      i+8,j
+
+  .
+ ...
+..c..
+ ...
+  .
 
 
+i-2,j
+i-1,j-1  i-1,j  i-1,j+1
+i,j-2  i,j-1  i,j  i,j+1  i,j+2
+i+1,j-1  i+1,j  i+1,j+1
+i+2,j
+
+if(imagem(i-2,j)==255 && imagem(i-1,j-1)==255 && imagem(i-1,j)==255 && imagem(i-1,j+1)==255 && imagem(i,j-2)==255 && imagem(i,j-1)==255 && imagem(i,j)==255 && imagem(i,j+1)==255 && imagem(i,j+2)==255 && imagem(i+1,j-1)==255 && imagem(i+1,j)==255 && imagem(i+1,j+1)==255 && imagem(i+2,j)==255)
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+    .....
+  .       .
+.           .
+.     c     .
+.           .
+  .       . 
+    .....
 
 
-i+8,j
-i+7,j-1  i+7,j+1
-i+6,j-2  i+6,j+2
-i+5,j-3  i+5,j+3
-i+4,j-4  i+4,j+4
-i+3,j-5  i+3,j+5
-i+2,j-6  i+2,j+6
-i+1,j-7  i+1,j+7 
-i,j-8    i,j+8
-i-1,j-7  i-1,j+7
-i-2,j-6  i-2,j+6
-i-3,j-5  i-3,j+5
-i-4,j-4  i-4,j+4
-i-5,j-3  i-5,j+3
-i-6,j-2  i-6,j+2
-i-7,j-1  i-7,j+1
-i-8,j
+i-3,j-2  i-3,j-1  i-3,j  i-3,j+1  i-3,j+2 
+i-2,j-4  i-2,j+4 
+i-1,j-6  i-2,j+6
+i,j-6    i,j+6
+i+1,j-6  i+1,j+6
+i+2,j-4  i+2,j+4
+i+3,j-2  i+3,j-1  i+3,j  i+3,j+1  i+3,j+2 
+
+
+imagem(i-3,j-2)==s && imagem(i-3,j-1)==s && imagem(i-3,j)==s && imagem(i-3,j+1)==s && imagem(i-3,j+2)==s && imagem(i-2,j-4)==s && 
+imagem(i-2,j+4)==s && imagem(i-1,j-6)==s && imagem(i-2,j+6)==s && imagem(i,j-6)==s && imagem(i,j+6)==s && imagem(i+1,j-6)==s && 
+imagem(i+1,j+6)==s && imagem(i+2,j-4)==s && imagem(i+2,j+4)==s && imagem(i+3,j-2)==s && imagem(i+3,j-1)==s && imagem(i+3,j)==s &&
+imagem(i+3,j+1)==s && imagem(i+3,j+2)==s
+
+
+malign 229444, 230177, 236959, 238255, 258800, 260061, 266209, 267607, 275226, 276765, 283688, 294198, 298990, 312170, 327273, 343742, 
+350408, 369159, 374843, 416713, 424377  
+
+bening 182173, 192835, 266403, 282770, 294350, 307175, 326147, 332633, 338159, 345364, 
+421081, 426317, 434218, 448775, 491147, 505894, 527258, 567953
+
+corte: 350000 (0,76 e 0,44)
+
+positivo para doença
+VP = 16  /   FP = 10   
+FN = 5   /   VN = 8                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  

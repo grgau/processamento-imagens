@@ -8,9 +8,9 @@
 - Etapa 2 (Segmentacao em duas imagens diferentes usando algoritmo k-means com k=2) feita
 - Todas as imagens que passam pela segmentação da Etapa 2 são colocadas no diretorio 'imagens_seg'
 - Etapa 3 (Aplicar filtro morfologico nas duas imagens segmentadas) feita
-- Escolhi o filtro gaussiano, as imagens com o filtro aplicado sobrescrevem as imagens segmentadas
-- Etapa 4.1 (Calcular entropia de Shannon) feita
+- Escolhi o abertura usando um losango como elemento estruturante porque bola preenchida era hard, as imagens com o filtro aplicado sobrescrevem as imagens segmentadas
+- Etapa 4.1 (Calcular entropia de Shannon) feita - mas tem aquela história de contar usando box counting (pois é)
+- Etapa 4.2 (Quantificacao atraves de operador morfologico) acho que feita, ta contando bolas não tao bem, mas acho que a ideia é essa
 
 ###### Proximo a ser feito
 - Funcao de calcular dimensao fractal
-- Definir operador morfologico a ser usado
