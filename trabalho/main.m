@@ -20,7 +20,10 @@ for i = 1 : length(diretorio_imagens)
     % 4 - Obtencao dos quantificadores: Dimensao Fractal, Entropia de Shannon e Operador morfologico das imagens: imagem_hsi, imagem_seg_1, imagem_seg_2
     %[dim_fractal_hsi, dim_fractal_seg_1, dim_fractal_seg_2]  = dimensao_fractal(nome_imagem_hsi, nome_imagem_seg_1, nome_imagem_seg_2);
     [entropia_sh_hsi, entropia_sh_seg_1, entropia_sh_seg_2] = entropia_shannon(nome_imagem_hsi, nome_imagem_seg_1, nome_imagem_seg_2);
-    %[op_morfologico_hsi, op_morfologico_seg_1, op_morfologico_seg_2] = operador_morfologico(nome_imagem_hsi, nome_imagem_seg_1, nome_imagem_seg_2);
+    [op_morfologico_hsi, op_morfologico_seg_1, op_morfologico_seg_2] = operador_morfologico(nome_imagem_hsi, nome_imagem_seg_1, nome_imagem_seg_2);
+
+    fprintf('%d / %d / %d - %s \n', op_morfologico_hsi, op_morfologico_seg_1, op_morfologico_seg_2, nome_imagem);
+    
     %
     %vetor_caracteristicas_hsi = [dim_fractal_hsi, entropia_sh_hsi, op_morfologico_hsi];
     %vetor_caracteristicas_seg_1 = [dim_fractal_seg_1, entropia_sh_seg_1, op_morfologico_seg_1];
