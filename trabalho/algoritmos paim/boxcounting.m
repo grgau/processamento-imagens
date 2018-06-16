@@ -36,7 +36,7 @@
 %
 %Chama a funçao "Contar" do mesmo arquivo (boxcounting.m)
 %-----------------------------------------------------------------------
-function [RegDimension] = BoxCounting(ImEntrada)
+function [dimensao] = BoxCounting(ImEntrada)
 % Cabecalho
 
            fprintf('Fractal Dimension -  Version 1.0\n'); 
@@ -129,6 +129,8 @@ Dimensao=MediaN/n_interval;
 RegDimension.dimensao = Dimensao;
 RegDimension.grafico1 = MatLog;
 RegDimension.grafico2 = MatLogN;
+
+dimensao = Dimensao;
 
 %--------------------------------------------------------------------------
 %A funçao 'Contar' calcula se existe pixel aceso na area da imagem que eh 

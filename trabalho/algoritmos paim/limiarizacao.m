@@ -17,7 +17,7 @@ function [nome_imagem1,nome_imagem2] =limiarizacao(imagem_equalizada, limiar)
      end
 
     %objeto marcado em branco
-    nome_imagem1 = strcat('img_seg_1', extensao);
+    nome_imagem1 = strcat(nome,'img_seg_1', extensao);
     imwrite(imagem, nome_imagem1);
     
      for i=1:size(imagem,1)
@@ -31,7 +31,7 @@ function [nome_imagem1,nome_imagem2] =limiarizacao(imagem_equalizada, limiar)
      end
      
      %fundo marcado em branco
-    nome_imagem2 = strcat('img_seg_2', extensao);
+    nome_imagem2 = strcat(nome,'img_seg_2', extensao);
     imwrite(imagem, nome_imagem2);
 
 end

@@ -44,7 +44,7 @@ end
 
 %figure;imshow(imagem);
 
-    nome_imagem = strcat(nome,' - abertura', extensao);
+    nome_imagem = strcat(nome, extensao);
     imwrite(imagem, nome_imagem);
 
 

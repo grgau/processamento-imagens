@@ -1,8 +1,8 @@
-function [nome_imagem_hsi]=rgb2hsi(imagem)
-[~, nome, extensao] = fileparts(imagem);
 
+function [nome_imagem_hsi]=rgb2hsi(imagem)
+[~, nome, classe,extensao] = fileparts(imagem);
+disp(classe);
 A = imread(imagem);
-figure,imshow(A);title('RGB Image');
 I = double(A)/255;
 
 R=I(:,:,1);
@@ -27,7 +27,7 @@ imagem_hsi(:,:,1) = H;
 imagem_hsi(:,:,2) = S;
 imagem_hsi(:,:,3) = I;
 
-nome_imagem_hsi = strcat(nome, '_hsi', extensao);
+nome_imagem_hsi = strcat(nome, extensao);
 imwrite(imagem_hsi(:,:,3), nome_imagem_hsi);
 
 end

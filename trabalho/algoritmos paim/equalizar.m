@@ -34,7 +34,7 @@ function [nome_imagem]=equalizar(imagem_hsi)
         end
     end
     
-        nome_imagem = strcat(nome,'_equalizado', extensao);
+        nome_imagem = strcat(nome, extensao);
     imwrite(imagem_hsi, nome_imagem);
      
      

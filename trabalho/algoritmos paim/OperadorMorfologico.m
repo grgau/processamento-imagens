@@ -1,4 +1,4 @@
-function OperadorMorfologico(imagem)
+function [contador] =  OperadorMorfologico(imagem)
 imagem = imread(imagem);
 
 contador = 0;
