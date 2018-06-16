@@ -1,4 +1,4 @@
-function rgb2hsi(imagem)
+function [nome_imagem_hsi]=rgb2hsi(imagem)
 [~, nome, extensao] = fileparts(imagem);
 
 A = imread(imagem);
@@ -29,10 +29,5 @@ imagem_hsi(:,:,3) = I;
 
 nome_imagem_hsi = strcat(nome, '_hsi', extensao);
 imwrite(imagem_hsi(:,:,3), nome_imagem_hsi);
-HSI=zeros(size(A));
-HSI(:,:,1)=H;
-HSI(:,:,2)=S;
-HSI(:,:,3)=I;
 
-figure,imshow(HSI);title('HSI Image');
 end
