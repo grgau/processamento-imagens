@@ -14,7 +14,10 @@ function [valor_dim_fractal_hsi, valor_dim_fractal_seg_1, valor_dim_fractal_seg_
 
     
     % Calcular dimensao fractal
+    valor_dim_fractal_hsi = conta_caixas(imagem_hsi);
+    valor_dim_fractal_seg_1 = conta_caixas(imagem_seg_1);
+    valor_dim_fractal_seg_2 = conta_caixas(imagem_seg_2);
     
-    
+    fprintf("A dimensao fractal da imagem hsi foi %d, da segmentação 1 foi %d e da segmentação 2 foi %d!\n", valor_dim_fractal_hsi, valor_dim_fractal_seg_1, valor_dim_fractal_seg_2);
 end
 
