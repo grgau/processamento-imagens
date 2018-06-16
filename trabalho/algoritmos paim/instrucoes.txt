@@ -1,0 +1,5 @@
+matriz = [montarVetores(imgClasseA,0);montarVetores(imgClasseB,1)]
+matrizOrdenado1 = sortrows(matriz,1)
+matrizOrdenado2 = sortrows(matriz,2)
+matrizOrdenado3 = sortrows(matriz,3)
+[acuracia,valor,matrizConfusao]=pontoDeCorte(matriz,indice)
