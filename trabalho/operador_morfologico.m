@@ -24,15 +24,15 @@ function [valor_op_morfologico_hsi, valor_op_morfologico_seg_1, valor_op_morfolo
 end
 
 function contador = conta_objetos(imagem)
-imagem = imread(imagem);
-imagem = imbinarize(imagem);
-contador = 0;
-    for i=4:size(imagem,1)-3
-        for j=7:size(imagem,2)-6
-            s = imagem(i,j);
-            if (imagem(i-3,j-2)==s && imagem(i-3,j-1)==s && imagem(i-3,j)==s && imagem(i-3,j+1)==s && imagem(i-3,j+2)==s && imagem(i-2,j-4)==s && imagem(i-2,j+4)==s && imagem(i-1,j-6)==s && imagem(i-2,j+6)==s && imagem(i,j-6)==s && imagem(i,j+6)==s && imagem(i+1,j-6)==s && imagem(i+1,j+6)==s && imagem(i+2,j-4)==s && imagem(i+2,j+4)==s && imagem(i+3,j-2)==s && imagem(i+3,j-1)==s && imagem(i+3,j)==s && imagem(i+3,j+1)==s && imagem(i+3,j+2)==s)
-                contador = contador + 1;
+    imagem = imread(imagem);
+    imagem = imbinarize(imagem);
+    contador = 0;
+        for i=4:size(imagem,1)-3
+            for j=7:size(imagem,2)-6
+                s = imagem(i,j);
+                if (imagem(i-3,j-2)==s && imagem(i-3,j-1)==s && imagem(i-3,j)==s && imagem(i-3,j+1)==s && imagem(i-3,j+2)==s && imagem(i-2,j-4)==s && imagem(i-2,j+4)==s && imagem(i-1,j-6)==s && imagem(i-2,j+6)==s && imagem(i,j-6)==s && imagem(i,j+6)==s && imagem(i+1,j-6)==s && imagem(i+1,j+6)==s && imagem(i+2,j-4)==s && imagem(i+2,j+4)==s && imagem(i+3,j-2)==s && imagem(i+3,j-1)==s && imagem(i+3,j)==s && imagem(i+3,j+1)==s && imagem(i+3,j+2)==s)
+                    contador = contador + 1;
+                end
             end
         end
-    end
 end
