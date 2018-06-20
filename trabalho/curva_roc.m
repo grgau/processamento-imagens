@@ -31,8 +31,8 @@ function curva_roc(vetor_benigno, vetor_maligno, titulo)
         N = VN + FN;
 
         tab_contingencia = [VP FP; FN VN];
-        %disp(tab_contingencia);
 
+        % Calcula os valores acrescentando ao vetor de cada um deles
         sensibilidade = [sensibilidade (VP / (VP + FN)) * 100];
         especificidade = [especificidade (VN / (FP + VN)) * 100];
         acuracia = [acuracia ((VP + VN) / (P + N)) * 100];
@@ -43,10 +43,9 @@ function curva_roc(vetor_benigno, vetor_maligno, titulo)
         vetor_pontos_corte = [vetor_pontos_corte ponto_corte];
     end
     
-    % Construcao de matriz contendo valores relacionados de especificidade,
+    % Construcao de matriz de resultados contendo valores relacionados de especificidade,
     % sensibilidade e ponto de corte unicos. Sera usado na construcao do
     % grafico ROC
-    
     espec = (100-especificidade)';
     senc = sensibilidade';
     p_cortes = vetor_pontos_corte';
@@ -66,7 +65,7 @@ function curva_roc(vetor_benigno, vetor_maligno, titulo)
     plot(matriz_resultados_unique(:,1), matriz_resultados_unique(:,2), '.-', 'MarkerSize', 12);
     
     % Escrevendo os resultados de ponto de corte referente ao valor de
-    % sensibilidade e especificidade
+    % sensibilidade e especificidade no grafico ROC
     for linha = 1:size(matriz_resultados_unique(:,1))
         text(matriz_resultados_unique(linha,1),matriz_resultados_unique(linha,2), string(matriz_resultados_unique(linha,3)))
     end
@@ -77,4 +76,20 @@ function curva_roc(vetor_benigno, vetor_maligno, titulo)
     
     % Salvando grafico ROC
     saveas(gcf, strcat('curvas_roc/', titulo,'.jpg'))
+           
+    % A partir da matriz de resultados previamente construida, constroi a
+    % matriz de confusao, escolhendo o maior valor de acuracia da matriz de
+    % resultados
+    espec = especificidade';
+    sens = sensibilidade';
+    p_cortes = vetor_pontos_corte';
+    acur = acuracia';
+
+    matriz_confusao = [sens(:), p_cortes(:), espec(:), acur(:)];
+    [~,x] = max(matriz_confusao(:,4));
+    matriz_confusao = matriz_confusao(x,:);
+    matriz_confusao = reshape(matriz_confusao,[2,2]);
+
+    disp(titulo);
+    disp(matriz_confusao);
 end

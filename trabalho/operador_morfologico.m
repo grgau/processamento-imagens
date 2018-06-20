@@ -13,9 +13,6 @@
 
 function [valor_op_morfologico_hsi, valor_op_morfologico_seg_1, valor_op_morfologico_seg_2] = operador_morfologico(imagem_hsi, imagem_seg_1, imagem_seg_2)
     
-    % Operacao de abertura com 5 pixels em formato de cruz    
-    
-    
     % Contagem de objetos circulares detectados em cada imagem
     valor_op_morfologico_hsi = conta_objetos(imagem_hsi);
     valor_op_morfologico_seg_1 = conta_objetos(imagem_seg_1);
@@ -25,7 +22,7 @@ end
 
 function contador = conta_objetos(imagem)
     imagem = imread(imagem);
-    imagem = imbinarize(imagem);
+    %imagem = imbinarize(imagem);
     contador = 0;
         for i=4:size(imagem,1)-3
             for j=7:size(imagem,2)-6

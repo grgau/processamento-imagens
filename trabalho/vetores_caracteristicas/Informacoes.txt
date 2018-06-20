@@ -1,0 +1,1 @@
+Os vetores de caracteristicas estão divididos por tipo e classe de imagem, sendo cada coluna um quantificador (dimensao fractal, entropia de shannon e operador morfologico respectivamente).
