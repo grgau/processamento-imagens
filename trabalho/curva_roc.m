@@ -90,6 +90,7 @@ function curva_roc(vetor_benigno, vetor_maligno, titulo)
     matriz_confusao = matriz_confusao(x,:);
     matriz_confusao = reshape(matriz_confusao,[2,2]);
 
+    disp("Matriz confusao");
     disp(titulo);
     disp(matriz_confusao);
 end
